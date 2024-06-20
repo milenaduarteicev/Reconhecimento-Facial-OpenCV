@@ -13,8 +13,8 @@ print("Diga X!!!")
 while (True):
     conectado, imagem = camera.read()
     imagemCinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY) #converter imagens em escalas de cinza
-    print(np.average(imagemCinza))
-    '''facesDetectadas = classificador.detectMultiScale(imagemCinza, scaleFactor=1.5, minSize=(100,100)) #
+    #print(np.average(imagemCinza))
+    facesDetectadas = classificador.detectMultiScale(imagemCinza, scaleFactor=1.5, minSize=(100,100)) #
     
     for(x, y, l, a) in facesDetectadas:
         cv2.rectangle(imagem, (x, y), (x + l, y + a), (0, 0, 255), 2)
@@ -29,7 +29,7 @@ while (True):
                 imagemFace = cv2.resize(imagemCinza[y:y + a, x:x + l], (largura, altura))
                 cv2.imwrite("fotos/id." + str(id) + "." + str(amostra) + ".jpg", imagemFace)
                 print("[foto" + str(amostra)+ "capturada com sucesso]")
-                amostra += 1 '''
+                amostra += 1
             
     cv2.imshow("Face", imagem)
     cv2.waitKey(1)
@@ -40,4 +40,3 @@ print("Faces capturadas com sucesso")
     
 camera.realese ()
 cv2.destroyAllWindows()
-
